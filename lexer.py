@@ -52,18 +52,16 @@ def lex(code: str | list):
          
    return tokens
 
-example_code = '''\
-let x1 = 10;
-let block = "minecraft:air";
-fill(x1, y1, z1, x2, y2, z2, block);
+def example():
+   example_code = '''\
+   let x1 = 10;
+   let block = "minecraft:air";
+   fill(x1, y1, z1, x2, y2, z2, block);
 
-// Line comments are the "//" characters
-/*
+   // Line comments are the "//" characters
+   /*
 
-   Block comments are /**/ characters
-   
-*/'''
+      Block comments are /**/ characters
 
-tokens = lex(example_code)
-for tok in tokens:
-    print(tok)
+   */'''
+   return lex(example_code)
