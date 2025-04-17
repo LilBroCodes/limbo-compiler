@@ -1,7 +1,6 @@
 import re
 from typing import List
 
-
 class Function:
     def __init__(self, name: str, code: str):
         self.name = name

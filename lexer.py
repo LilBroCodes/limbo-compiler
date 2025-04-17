@@ -1,6 +1,5 @@
 import re
 
-
 class Token:
    def __init__(self, token_type: str, value: str, line: int, col: int):
       self.type = token_type

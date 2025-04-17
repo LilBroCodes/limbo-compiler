@@ -1,22 +1,20 @@
 from typing import List
 
-import lexer
-import loader
-import util
-from loader import Function, LimboFunction
+from . import lexer
+from . import loader
+from . import util
+from . import parser as p
 
-from parser import Parser
-
-class CompiledFunction(Function):
+class CompiledFunction(loader.Function):
    pass
 
 def compile_code(code: str, debug: bool):
    tokens = lexer.lex(code)
-   parser = Parser(tokens, debug, util.Logging.change_log_format("Parser"))
+   parser = p.Parser(tokens, debug, util.Logging.change_log_format("Parser"))
    ast = parser.parse()
    return ast
 
-def compile_func(func: LimboFunction, debug: bool):
+def compile_func(func: loader.LimboFunction, debug: bool):
    return compile_code(func.code, debug)
 
 def from_file(filename: str, debug=False) -> List[CompiledFunction]:
