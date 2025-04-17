@@ -1,9 +1,9 @@
 from typing import List
 
-from . import lexer
-from . import loader
-from . import util
-from . import parser as p
+import lexer
+import loader
+import util
+import parser as p
 
 class CompiledFunction:
    def __init__(self, name: str, ast: list[p.ASTNode]):

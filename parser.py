@@ -171,6 +171,7 @@ class Parser:
       self.expect("RBRACE")
 
       else_if_blocks = []
+      else_block = None
       while self.current_token and self.current_token.type == "ELSE":
          self.consume()
          if self.current_token.type == "IF":
@@ -186,10 +187,9 @@ class Parser:
             self.expect("LBRACE")
             else_block = self.parse_block()
             self.expect("RBRACE")
-            else_if_blocks.append((None, else_block))
             break
 
-      return IfStatement(condition, if_block, else_if_blocks, None)
+      return IfStatement(condition, if_block, else_if_blocks, else_block)
 
    def parse_while_loop(self):
       if self.debug:
