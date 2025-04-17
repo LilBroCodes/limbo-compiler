@@ -5,8 +5,10 @@ from . import loader
 from . import util
 from . import parser as p
 
-class CompiledFunction(loader.Function):
-   pass
+class CompiledFunction:
+   def __init__(self, name: str, ast: list[p.ASTNode]):
+      self.name = name
+      self.ast = ast
 
 def compile_code(code: str, debug: bool):
    tokens = lexer.lex(code)
